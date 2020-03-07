@@ -1,0 +1,19 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Feb 16 20:46:49 2020
+
+@author: ROG
+"""
+
+import requests
+from bs4 import BeautifulSoup
+url = 'https://www.nytimes.com/'
+r = requests.get(url)
+r_html = r.text
+soup = BeautifulSoup(r_html)
+for story_heading in soup.find_all(class_="balancedHeadline"): 
+    print(story_heading)
+#    if story_heading.a: 
+#        print(story_heading.a.text.replace("\n", " ").strip())
+#    else: 
+#        print(story_heading.contents[0].strip())
